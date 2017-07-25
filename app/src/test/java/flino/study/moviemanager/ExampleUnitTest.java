@@ -1,4 +1,4 @@
-package com.example.ivany.moviemanager;
+package flino.study.moviemanager;
 
 import org.junit.Test;
 

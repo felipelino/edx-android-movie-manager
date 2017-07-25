@@ -1,4 +1,4 @@
-package com.example.ivany.moviemanager;
+package flino.study.moviemanager;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.ivany.moviemanager", appContext.getPackageName());
+        assertEquals("flino.study.moviemanager", appContext.getPackageName());
     }
 }
