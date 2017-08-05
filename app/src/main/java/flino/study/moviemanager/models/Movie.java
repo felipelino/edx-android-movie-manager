@@ -1,10 +1,15 @@
 package flino.study.moviemanager.models;
 
+
+import android.net.Uri;
+
+import java.io.Serializable;
+
 /**
  * Created by felipe.lino on 8/4/17.
  */
 
-public class Movie
+public class Movie implements Serializable
 {
     private String id;
     private String title;
@@ -71,7 +76,13 @@ public class Movie
     }
 
     public String getPosterPath() {
-        return posterPath;
+        return String.format("https://image.tmdb.org/t/p/w342%s", posterPath);
+    }
+
+    public Uri getPosterPathUri() {
+        String strUri = String.format("https://image.tmdb.org/t/p/w342%s", posterPath);
+        Uri uri = Uri.parse(strUri);
+        return uri;
     }
 
     public void setPosterPath(String posterPath) {

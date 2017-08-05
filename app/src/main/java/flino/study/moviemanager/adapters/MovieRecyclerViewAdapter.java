@@ -1,6 +1,7 @@
 package flino.study.moviemanager.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,11 +12,13 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.net.URI;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import flino.study.moviemanager.R;
+import flino.study.moviemanager.activities.MovieDetailActivity;
 import flino.study.moviemanager.models.Movie;
 
 /**
@@ -45,10 +48,13 @@ public class MovieRecyclerViewAdapter extends RecyclerView.Adapter<MovieRecycler
 
         holder.tvTitle.setText(movie.getTitle());
         holder.tvOverview.setText(movie.getOverview());
-
-        Picasso.with(getContext())
+        holder.ivMovieImage.setImageURI(movie.getPosterPathUri());
+        //holder.ivMovieImage.bringToFront();
+        /*Picasso.with(getContext())
                 .load(movie.getPosterPath())
+                //.load("https://image.tmdb.org/t/p/w342/z4x0Bp48ar3Mda8KiPD1vwSY3D8.jpg")
                 .into(holder.ivMovieImage);
+        */
     }
 
     @Override
@@ -60,7 +66,7 @@ public class MovieRecyclerViewAdapter extends RecyclerView.Adapter<MovieRecycler
         return this.context;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.ivMovieImage)
         ImageView ivMovieImage;
         @BindView(R.id.tvTitle)
@@ -73,6 +79,15 @@ public class MovieRecyclerViewAdapter extends RecyclerView.Adapter<MovieRecycler
         ViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
+            view.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Movie movie = movies.get(getAdapterPosition());
+            Intent intent = new Intent(getContext(), MovieDetailActivity.class);
+            intent.putExtra("MOVIE", movie);
+            getContext().startActivity(intent);
         }
     }
 }
