@@ -48,13 +48,9 @@ public class MovieRecyclerViewAdapter extends RecyclerView.Adapter<MovieRecycler
 
         holder.tvTitle.setText(movie.getTitle());
         holder.tvOverview.setText(movie.getOverview());
-        holder.ivMovieImage.setImageURI(movie.getPosterPathUri());
-        //holder.ivMovieImage.bringToFront();
-        /*Picasso.with(getContext())
+        Picasso.with(getContext())
                 .load(movie.getPosterPath())
-                //.load("https://image.tmdb.org/t/p/w342/z4x0Bp48ar3Mda8KiPD1vwSY3D8.jpg")
                 .into(holder.ivMovieImage);
-        */
     }
 
     @Override

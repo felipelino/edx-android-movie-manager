@@ -80,7 +80,7 @@ public class Movie implements Serializable
     }
 
     public Uri getPosterPathUri() {
-        String strUri = String.format("https://image.tmdb.org/t/p/w342%s", posterPath);
+        String strUri = this.getPosterPath();
         Uri uri = Uri.parse(strUri);
         return uri;
     }
@@ -90,7 +90,13 @@ public class Movie implements Serializable
     }
 
     public String getBackdropPath() {
-        return backdropPath;
+        return String.format("https://image.tmdb.org/t/p/w780%s", backdropPath);
+    }
+
+    public Uri getBackdropPathUri() {
+        String strUri = getBackdropPath();
+        Uri uri = Uri.parse(strUri);
+        return uri;
     }
 
     public void setBackdropPath(String backdropPath) {

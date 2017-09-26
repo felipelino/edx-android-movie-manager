@@ -22,18 +22,16 @@
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:collapsedTitleTextAppearance="@style/TextAppearance.Design.CollapsingToolbar.Expanded.Shadow"
-
+            app:expandedTitleMarginEnd="@dimen/title_margin_end"
+            app:expandedTitleMarginStart="@dimen/title_margin_start"
             >
-            <!--
-                android:expandedTitleMarginEnd="64dp"
-                android:expandedTitleMarginStart="48dp"
-                android:layout_collapseMode="parallax"
-                       -->
+
             <ImageView
                 android:id="@+id/ivMovieBackdrop"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+                app:layout_collapseMode="parallax"
                 android:scaleType="centerCrop"
                 android:minHeight="@dimen/activity_detail_backdrop_min_height"
 
@@ -58,6 +56,6 @@
         android:layout_margin="@dimen/fab_margin"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:src="@drawable/ic_favorite" />
 
 </android.support.design.widget.CoordinatorLayout>
